@@ -16,7 +16,7 @@ Generating ARPES data for convolutional neural network
 
 
 
-A package that simulates angle-resolved photoemission spectroscopy (ARPES) data from tight-binding model based on <a href="https://chinookpy.readthedocs.io/en/latest/introduction.html">Chinook</a>
+A package that simulates angle-resolved photoemission spectroscopy (ARPES) data from tight-binding model based on the Python package Chinook (https://chinookpy.readthedocs.io/en/latest/introduction.html)
 
 
 * Free software: GNU General Public License v3
