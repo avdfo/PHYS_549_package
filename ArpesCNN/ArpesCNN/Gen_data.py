@@ -5,12 +5,13 @@ network (CNN). Code or functions here that bear similar roles in Chinook like di
 ARPES matrix element effets, constructing 3D datacubes and so on are adapted from Chinook package source code.
 With the "simulation" class defined here, users don't have to import Chinook in Python code but only need to provide
 Chinook-like basis, Hamiltonian, ARPES, and momentum (optional) dictionaries as the input to the "simulation".
-A template is provided in the "Gen_data_example.ipynb".
+
 One key difference of the band structure generated here is that we also construct a 3D datacube for the TB model, just
 like the one for ARPES. Meanwhile, all the pixels coinciding with certain calculated energy eigenvalues in the TB 2D or
 3D arrays are assigned with a weight of 1, while pixels with no bands are assigned with weight 0. In that sense,it would
 be conducive for the CNN to compare the normalized ARPES data (with weight on each pixel between 0 and 1) with the
-ground truth, TB data.
+ground truth, TB data. To accelerate the data simulation process, we also add a function generating ARPES data without
+considering matrix element effect.
 This module is written by Yichen Zhang, with the input from Ziqin Yue on adding noise to simulated ARPES data.
 """
 
