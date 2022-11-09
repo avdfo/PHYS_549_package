@@ -1,5 +1,5 @@
 ===================
-Deep learning ARPES
+Generating ARPES data for convolutional neural network
 ===================
 
 
@@ -16,7 +16,7 @@ Deep learning ARPES
 
 
 
-A package that denoises and resolves fine features in ARPES data using convolutional neural networks
+A package that simulates angle-resolved photoemission spectroscopy (ARPES) data from tight-binding model based on <a href="https://chinookpy.readthedocs.io/en/latest/introduction.html">Chinook</a>
 
 
 * Free software: GNU General Public License v3
