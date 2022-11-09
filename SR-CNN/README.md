@@ -1,7 +1,13 @@
-[TensorFlow] Super-Resolution CNN 
+[TensorFlow] Super-Resolution CNN (SR-CNN)
 =====
 
-TensorFlow implementation of 'Image Super-Resolution using Deep Convolutional Network'. PyTorch version is also provided in <a href="https://github.com/YeongHyeon/Super-Resolution_CNN-PyTorch">Related Repository</a>.
+TensorFlow implementation of 'Image Super-Resolution using Deep Convolutional Network'. 
+
+This package is adapted from <a href="https://github.com/YeongHyeon/Super-Resolution_CNN">YeongHyeon's implementation of SR-CNN</a> in order to
+train the simulated angle-resolved photoemission spectroscopy (ARPES) data on the neural network. Some details of the code are modified to accomodate
+ARPES data format, while the main frame remains the same.
+
+PyTorch version of YeongHyeon's original implementation of the SR-CNN is also provided in <a href="https://github.com/YeongHyeon/Super-Resolution_CNN-PyTorch">Related Repository</a>.
 
 ## Architecture
 <div align="center">
@@ -30,6 +36,4 @@ The architecture constructed by three convolutional layers, and the kernel size 
 ## Reference
 [1] Image Super-Resolution Using Deep Convolutional Networks, Chao Dong et al., https://ieeexplore.ieee.org/abstract/document/7115171/  
 [2] Urban 100 dataset, Huang et al.,  https://sites.google.com/site/jbhuang0604/publications/struct_sr  
-
-First commit: 21.April.2018  
-Version Update: 28.August.2019  
+ 
