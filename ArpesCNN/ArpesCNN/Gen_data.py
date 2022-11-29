@@ -23,6 +23,7 @@ from chinook.ARPES_lib import pol_2_sph
 import scipy.ndimage as nd
 import matplotlib.cm as cm
 import matplotlib.pyplot as plt
+from scipy.interpolate import interp2d
 import os
 
 class simulation:
@@ -290,7 +291,7 @@ class simulation:
             return I
 
     # Extracting a 2D array from a 3D datacube array
-    def extract2D(self, datacube, slice_select, cal_type, NSR, noise=False):
+    def extract2D(self, datacube, slice_select, cal_type, NSR, noise=False, interp=False):
         if type(slice_select[0]) is str:
             str_opts = [['x', 'kx'], ['y', 'ky'], ['energy', 'w', 'e']]
             dim = 0
@@ -306,7 +307,27 @@ class simulation:
         limits[slice_select[0]] = [slice_select[1], slice_select[1] + 1]
 
         plottable = np.squeeze(datacube[limits[1, 0]:limits[1, 1], limits[0, 0]:limits[0, 1], limits[2, 0]:limits[2, 1]])
+        a = plottable
         I = plottable
+        
+        if interp:
+            xx = np.arange(self.AE.cube[1][2])
+            yy = np.arange(self.AE.cube[2][2])
+            x = np.arange(0, self.AE.cube[1][2], 0.25)
+            y = np.arange(0, self.AE.cube[2][2], 0.25)
+            
+            f = interp2d(xx, yy, plottable, kind='linear')
+            a_new = f(x, y)
+            
+            for i in range(self.AE.cube[1][2]):
+                for j in range(self.AE.cube[2][2]):
+                    x = (i + 1) * 4 - 4
+                    y = (j + 1) * 4 - 4
+                    a[i, j] = (a_new[x, y] + a_new[x+1, y] + a_new[x+2, y] + a_new[x+3, y] + 
+                               a_new[x, y+1] + a_new[x+1, y+1] + a_new[x+2, y+1] + a_new[x+3, y+1] + 
+                               a_new[x, y+2] + a_new[x+1, y+2] + a_new[x+2, y+2] + a_new[x+3, y+2] + 
+                               a_new[x, y+3] + a_new[x+1, y+3] + a_new[x+2, y+3] + a_new[x+3, y+3]) / 16
+            a[a > 0.] = 1.
 
         wg = (self.AE.cube[2][2] * self.AE.dE / (self.AE.cube[2][1] - self.AE.cube[2][0]) if abs(
             self.AE.cube[2][1] - self.AE.cube[2][0]) > 0 else 0)
@@ -343,8 +364,8 @@ class simulation:
             Ig = Ig * (np.sign(Ig) + 1.) / 2  # No Poison and circuit Gausian noise if noise=False
 
         if cal_type == 'TB':
-            return plottable
-        elif cal_type == 'ARPES':
+            return a
+        elif cal_type == 'ARPES' or 'ARPES_noise_free' or 'ARPES_matrix':
             return Ig
         else:
             raise Exception('Please use TB or ARPES as input for cal_type')
@@ -473,14 +494,14 @@ class simulation:
             raise Exception('Please use TB or ARPES as input for cal_type')
 
     # Generating 2D npy files. 2D slices are selected from either the 3D TB or the 3D ARPES datacube.
-    def npy_from_cube(self, datacube, cube_idx, N, y_start, y_end, cal_type, path, noise=False, NSR=0.8):
+    def npy_from_cube(self, datacube, cube_idx, N, y_start, y_end, cal_type, path, noise=False, interp=True, NSR=0.8):
         if y_start<self.AE.cube[1][0] or y_end>self.AE.cube[1][1]:
             raise Exception('Slice out of the cube range')
 
         if cal_type == 'TB':
             makedir(path + '/TB_simulation')
             for i in range(N):
-                TB_arr = self.extract2D(datacube, slice_select=('ky', y_start + i * np.abs(y_end-y_start)/(N-1)), cal_type=cal_type, NSR=NSR, noise=False)
+                TB_arr = self.extract2D(datacube, slice_select=('ky', y_start + i * np.abs(y_end-y_start)/(N-1)), cal_type=cal_type, NSR=NSR, noise=False, interp=interp)
                 np.save("%s/TB_simulation/TB_sim_%d_%d" %(path, cube_idx, i), TB_arr)
 
         elif cal_type == 'ARPES':
@@ -488,6 +509,18 @@ class simulation:
             for i in range(N):
                 ARPES_arr = self.extract2D(datacube, slice_select=('ky', y_start + i * np.abs(y_end-y_start)/(N-1)), cal_type=cal_type, NSR=NSR, noise=noise)
                 np.save("%s/ARPES_simulation/ARPES_sim_%d_%d" %(path, cube_idx, i), ARPES_arr)
+                
+        elif cal_type == 'ARPES_noise_free':
+            makedir(path + '/ARPES_simulation_noise_free')
+            for i in range(N):
+                ARPES_arr = self.extract2D(datacube, slice_select=('ky', y_start + i * np.abs(y_end-y_start)/(N-1)), cal_type=cal_type, NSR=NSR, noise=noise)
+                np.save("%s/ARPES_simulation_noise_free/ARPES_sim_%d_%d" %(path, cube_idx, i), ARPES_arr)
+                
+        elif cal_type == 'ARPES_matrix':
+            makedir(path + '/ARPES_simulation_matrix')
+            for i in range(N):
+                ARPES_arr = self.extract2D(datacube, slice_select=('ky', y_start + i * np.abs(y_end-y_start)/(N-1)), cal_type=cal_type, NSR=NSR, noise=noise)
+                np.save("%s/ARPES_simulation_matrix/ARPES_sim_%d_%d" %(path, cube_idx, i), ARPES_arr)
 
         else:
             raise Exception('Please use TB or ARPES as input for cal_type')
