@@ -15,7 +15,7 @@ PATH = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 os.mkdir(PATH + '/Parameters')
 os.mkdir(PATH + '/Visualizations')
 
-cube_num = 24
+cube_num = 5
 for i in range(cube_num):
 # Step 1. Set up the basis dictionary
     a,c = 3.66,6.51
@@ -81,19 +81,21 @@ for i in range(cube_num):
 
 # Step 3. Set up the ARPES dictionary
     k_bound = np.pi/a
+    SE = (0.01 + 0.035 * np.random.rand(1)) * 1j
+    Param_list.append(SE)
     arpes = {'cube':{'X':[-k_bound,k_bound,300],'Y':[-k_bound,k_bound,300],'E':[-4.5,0.2,300],'kz':0.0}, 
         'hv':100,                          
         'T':10,                     
         'pol':np.array([1,0,-1]),           
-        'SE':['constant',0.1j],            
-        'resolution':{'E':0.12,'k':0.05}}
+        'SE':['constant',SE],            
+        'resolution':{'E':0.12,'k':0.04}}
 
 # Step 4. Feed the basis, hamiltonian, and ARPES dictionaries to the Simulation class
     sim = simulation(basis, hamiltonian, arpes)
 
     I = sim.TB_cube()
-    NSR = 0.3
-    Param_list.append(NSR)
+    NSR = 0.5
+    #Param_list.append(NSR)
     Ig = sim.ARPESraw_cube(noise=True, NSR=NSR)
     slice_num = 16
     sim.npy_from_cube(I, i, slice_num, -k_bound, 0., 'TB', path=PATH)
