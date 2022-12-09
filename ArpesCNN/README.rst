@@ -1,5 +1,5 @@
 ===================
-Deep learning ARPES
+Tight-binding and ARPES band structure simulation
 ===================
 
 
@@ -16,7 +16,7 @@ Deep learning ARPES
 
 
 
-A package that denoises and resolves fine features in ARPES data using convolutional neural networks
+A package that simulates tight-binding and angle-resolved photoemission spectroscopy band sturcture customized for super-resolution convolutional neural network. The lattice, orbital, momentum path, Hamiltonian construction and diagonalization is based on the Python package chinook.
 
 
 * Free software: GNU General Public License v3
