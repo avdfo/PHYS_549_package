@@ -275,7 +275,7 @@ class simulation:
             #Ig = Ig / Igmax
             #Ig = Ig * (np.sign(Ig) + 1.) / 2  # No Poison and circuit Gausian noise if noise=False
 
-        I = np.array(I, dtype="float32")
+        #I = np.array(I, dtype="float32")
 
         if slice_select != None:
             ax_img = self.plot_band_structure(I, slice_select, plot_bands, ax, colourmap=colourmap, noise=noise, NSR=NSR)
@@ -366,6 +366,7 @@ class simulation:
                 Igmax = np.max(Ig)
                 Ig = Ig / Igmax
                 Ig = Ig * (np.sign(Ig) + 1.) / 2  # No Poison and circuit Gausian noise if noise=False
+            Ig = np.array(Ig, dtype="float32")
             return Ig
 
         else:
