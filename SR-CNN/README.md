@@ -3,7 +3,7 @@
 
 TensorFlow implementation of 'Image Super-Resolution using Deep Convolutional Network' [1] applied on angle-resolved photoemission spectroscopy (ARPES) data. The goal is to reproduce the results in Ref. [2] as a practice.
 
-The package is adapted from <a href="https://github.com/YeongHyeon/Super-Resolution_CNN">YeongHyeon's implementation of SR-CNN</a> in order to perform denoising and fine feature extraction on angle-resolved photoemission spectroscopy (ARPES). 
+The package is adapted from <a href="https://github.com/YeongHyeon/Super-Resolution_CNN">YeongHyeon's implementation of SR-CNN</a> in order to perform denoising and fine feature extraction on angle-resolved photoemission spectroscopy (ARPES) data. 
 
 
 ## Architecture
