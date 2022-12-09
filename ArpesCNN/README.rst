@@ -31,7 +31,9 @@ Features
 Credits
 -------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+* This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+* This package imports Chinook_ to complete the tasks of building up lattice, orbital, momentum path and Hamiltonian. The diagonalization of tight-binding matrices, calculation of  self energy and ARPES spectral function are based on the implementation in Chinook.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+.. _Chinook: https://chinookpy.readthedocs.io/en/latest/introduction.html
