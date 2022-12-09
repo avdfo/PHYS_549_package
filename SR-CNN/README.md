@@ -3,13 +3,13 @@
 
 TensorFlow implementation of 'Image Super-Resolution using Deep Convolutional Network' applied on angle-resolved photoemission spectroscopy (ARPES) data.
 
-This package is adapted from <a href="https://github.com/YeongHyeon/Super-Resolution_CNN">YeongHyeon's implementation of SR-CNN</a> in order to perform denoising and fine feature extraction on angle-resolved photoemission spectroscopy (ARPES). 
+The package is adapted from <a href="https://github.com/YeongHyeon/Super-Resolution_CNN">YeongHyeon's implementation of SR-CNN</a> in order to perform denoising and fine feature extraction on angle-resolved photoemission spectroscopy (ARPES). 
 
 
 ## Architecture
 <div align="center">
-  <img src="./readme/srcnn.png" width="700">  
-  <p>The architecture of the Super-Resolution Network (SRCNN).</p>
+  <img src="./readme/Architecture.png" width="700">  
+  <p>The architecture of the Super-Resolution Network (SRCNN) on ARPES data.</p>
 </div>
 
 The architecture constructed by three convolutional layers, and the kernel size are 9x9, 1x1, 3x2 respectively. It used RMS loss and stochastic gradient descent opeimizer for training in this repository, but original one was trained by MSE loss (using same optimizer). The input of the SRCNN is Low-Resolution (Bicubic Interpolated) image that same size of the output image, and the output is High-Resolution.  
