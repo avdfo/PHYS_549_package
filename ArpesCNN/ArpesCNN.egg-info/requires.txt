@@ -1,0 +1,4 @@
+chinook
+numpy
+matplotlib
+scipy
