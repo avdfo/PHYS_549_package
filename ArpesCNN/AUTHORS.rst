@@ -5,9 +5,9 @@ Credits
 Development Lead
 ----------------
 
-* Yichen Zhang <zycforphysics@gmail.com>
+* Yichen Zhang <zycforphysics@gmail.com, yz155@rice.edu>
 
 Contributors
 ------------
 
-None yet. Why not be the first?
+* Ziqin Yue <zy40@rice.edu>
