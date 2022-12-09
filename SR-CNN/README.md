@@ -8,7 +8,7 @@ The package is adapted from <a href="https://github.com/YeongHyeon/Super-Resolut
 
 ## Architecture
 <div align="center">
-  <img src="./readme/Architecture.png" width="700">  
+  <img src="./readme/Architecture_white.png" width="700">  
   <p>The architecture of the Super-Resolution Network (SRCNN) on ARPES data.</p>
 </div>
 
