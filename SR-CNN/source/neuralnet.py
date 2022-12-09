@@ -47,7 +47,11 @@ class SRNET(object):
         self.loss = tf.reduce_sum(tf.nn.sigmoid_cross_entropy_with_logits(self.outputs, self.recon_temp)) / 90000.
         self.psnr = tf.math.log(1 / tf.sqrt(tf.reduce_mean(tf.square(self.recon - self.outputs)))) / tf.math.log(10.0) * 20
 
-        self.optimizer = tf.compat.v1.train.AdamOptimizer(learning_rate=3e-4).minimize(loss=self.loss)
+        self.var_list1 = [self.weights['recon'], self.biases['recon']]
+        self.var_list2 = [self.weights['nl_map'], self.biases['nl_map'], self.weights['patch_ext'], self.biases['patch_ext']]
+        self.optimizer1 = tf.compat.v1.train.AdamOptimizer(learning_rate=1e-5).minimize(loss=self.loss, var_list=self.var_list1)
+        self.optimizer2 = tf.compat.v1.train.AdamOptimizer(learning_rate=1e-4).minimize(loss=self.loss, var_list=self.var_list2)
+        self.optimizer = tf.group(self.optimizer1, self.optimizer2)
 
         tf.compat.v1.summary.histogram('w-patch_ext', self.weights['patch_ext'])
         tf.compat.v1.summary.histogram('w-nl_map', self.weights['nl_map'])
