@@ -77,6 +77,7 @@ def training(sess, neuralnet, saver, dataset, epochs, batch_size, batch_size_val
     print("\nTraining SRCNN to %d epochs" %(epochs))
     train_writer = tf.compat.v1.summary.FileWriter(PACK_PATH+'/Checkpoint')
 
+    # Static is for tracing the output evolution on a single image
     X_static, Y_static, _ = dataset.next_train(batch_size=1)
     img_input = np.squeeze(X_static, axis=0)
     img_ground = np.squeeze(Y_static, axis=0)

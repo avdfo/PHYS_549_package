@@ -36,6 +36,7 @@ class DataSet(object):
 
         return tmplist
 
+    # Load the training data
     def next_train(self, batch_size=1):
 
         data = np.zeros((0, 1, 1, 1))
@@ -69,6 +70,7 @@ class DataSet(object):
 
         return data, label, terminator
 
+    # Load the validation data
     def next_val(self, batch_size_val=1):
         data = np.zeros((0, 1, 1, 1))
         label = np.zeros((0, 1, 1, 1))
@@ -97,6 +99,7 @@ class DataSet(object):
 
         return data, label
 
+    # Load the testing data
     def next_test(self):
 
         data = np.expand_dims(np.load(self.list_test_lr[self.idx_te]), axis=0)
@@ -113,6 +116,7 @@ class DataSet(object):
             return None, None
         else: return data, label
 
+    # Load ARPES experiment data for testing
     def next_test_exp(self):
 
         data = np.expand_dims(np.load(self.list_test_exp[self.idx_te_exp]), axis=0)

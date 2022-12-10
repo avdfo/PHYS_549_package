@@ -60,14 +60,6 @@ class SRNET(object):
         tf.compat.v1.summary.histogram('b-nl_map', self.biases['nl_map'])
         tf.compat.v1.summary.histogram('b-recon', self.biases['recon'])
 
-        # tf.compat.v1.summary.image('img-inputs', self.inputs)
-        # for c_idx in range(self.n1):
-        #     tf.compat.v1.summary.image('img-patch_ext %d' %(c_idx), tf.expand_dims(self.patch_ext[:,:,:,c_idx], 3))
-        # for c_idx in range(self.n2):
-        #     tf.compat.v1.summary.image('img-nonlinear_map %d' %(c_idx), tf.expand_dims(self.nonlinear_map[:,:,:,c_idx], 3))
-        # tf.compat.v1.summary.image('img-recon', self.recon)
-        # tf.compat.v1.summary.image('img-outputs', self.outputs)
-
         tf.compat.v1.summary.scalar('loss', self.loss)
         tf.compat.v1.summary.scalar('psnr', self.psnr)
 
