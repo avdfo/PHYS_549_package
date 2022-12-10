@@ -2,7 +2,7 @@
 Tight-binding and ARPES band structure simulation
 ===================
 
-A package that simulates tight-binding and angle-resolved photoemission spectroscopy band sturcture customized for super-resolution convolutional neural network. The lattice, orbital, momentum path, Hamiltonian construction and diagonalization is based on the Python package chinook.
+A package that simulates tight-binding and angle-resolved photoemission spectroscopy band sturcture customized for super-resolution convolutional neural network.
 
 
 * Free software: GNU General Public License v3
