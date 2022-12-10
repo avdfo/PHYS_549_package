@@ -44,7 +44,8 @@ Extracting fine features from different ARPES band structures. Dashed red boxes 
 * Python 3.6.8  
 * Tensorflow 1.14.0  
 * Numpy 1.14.0  
-* Matplotlib 3.1.1  
+* Matplotlib 3.1.1 
+ 
 The code can also run in Tensorflow 2 environment.
 
 ## Reference
