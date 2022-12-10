@@ -1,7 +1,7 @@
 GNU GENERAL PUBLIC LICENSE
                       Version 3, 29 June 2007
 
-    A package that denoises and resolves fine features in ARPES data using convolutional neural networks
+    A package that denoises and resolves fine features in ARPES data using super-resolution convolution neural network 
     Copyright (C) 2022  Yichen Zhang
 
     This program is free software: you can redistribute it and/or modify
