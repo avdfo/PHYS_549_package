@@ -12,7 +12,7 @@ The package is adapted from <a href="https://github.com/YeongHyeon/Super-Resolut
   <p>The architecture of the Super-Resolution Network (SRCNN) on ARPES data.</p>
 </div>
 
-The architecture consists of three convolutional layers with kernel sizes of 9x9, 1x1, 5x5, and nonlinear activation functions of ReLu, ReLu, sigmoid, respectively. The simulated ARPES data is fed to the CNN as inputs, while the TB data is used as the ground truth. The cross entropy loss is calculated between the outputs and the ground truth, and back propogated to update the weights and biases of each layer using an Adam optimizer. In addition to the training, we have generated separate validation datasets for calculating validation loss at the end of each epoch in comparison with training loss to monitor the learning curve. Eventually the trained SR-CNN is applied to the final testing dataset, as well as the actual ARPES experiment data
+The architecture consists of three convolutional layers with kernel sizes of 9x9, 1x1, 5x5, and nonlinear activation functions of ReLu, ReLu, sigmoid, respectively. The simulated ARPES data is fed to the CNN as input, while the TB data is used as the ground truth. The cross entropy loss is calculated between the outputs and the ground truth, and back propogated to update the weights and biases of each layer using an Adam optimizer. In addition to the training, we have generated separate validation datasets for calculating validation loss at the end of each epoch in comparison with training loss to monitor the learning curve. Eventually the trained SR-CNN is applied to the final testing dataset, as well as the actual ARPES experiment data
 
 ## Results
 Evolution of the training output across different epochs:
