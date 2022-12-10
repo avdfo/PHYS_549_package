@@ -86,7 +86,7 @@ Operating procedure
     $ python run.py
     
    In "run.py", you can change the training batch size, validation batch size and epoch number. The default setting here is training batch size = 16, 
-   validation batch size = 4, and epoch number = 20.
+   validation batch size = 4, and epoch number = 200.
    
    Note that the ratio of your training dataset size and validation dataset size should match the ratio of training batch size and validation batch size 
    so that training and validation processes share the same times of backpropogation within each epoch. 
