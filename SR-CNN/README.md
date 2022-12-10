@@ -22,7 +22,7 @@ Evolution of the training output across different epochs:
 
 A direct comparison between an example of Input, ground truth and output:
 <div align="center">
-  <img src="./readme/Result.png" width="800">   
+  <img src="./readme/Result_comp.png" width="800">   
 </div>
 
 Quantitative illustration of the energy distribution curves in the ground truth (TB), input (ARPES) and output (reconstructed) spectra.
@@ -35,7 +35,7 @@ Quantitative illustration of the momentum distribution curves in the ground trut
   <img src="./readme/MDC.png" width="750">   
 </div>
 
-Extracting fine features from different ARPES band structures. Dashed red boxes dentoe the region of interest.
+Extracting fine features from different ARPES band structures. Dashed red boxes dentoe the regions of interest.
 <div align="center">
   <img src="./readme/Test_exp.png" width="500">   
 </div>
