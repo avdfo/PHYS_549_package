@@ -12,7 +12,7 @@ The "PHYS_549_package" contains two separate directories, "ArpesCNN" and "SR-CNN
 Operating procedure
 ----------------------
 
-1. Download the "PHYS_549_package" directory or git clone in terminal.
+1. Download the "PHYS_549_package" directory or git clone in terminal::
 
     $ git clone https://github.com/avdfo/PHYS_549_package.git
 
