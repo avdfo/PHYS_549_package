@@ -20,6 +20,10 @@ Features
 
 * Neglect the matrix element effect in ARPES spectra to accelarate the data generation. However, the option of calculating matrix element effect is still included. Electron proper self-energy terms included as well.
 
+* Three layers of noises added to the ARPES spectra to emulate real ARPES data. One layer of Poisson noise + Gaussian filter simulating finite instrumental resolution + Gaussian noise mimicking circuit noise in experiments.
+
+* Anti-aliasing processing on calculated TB band structure. The final TB array is still normalized to 1 at pixels with bands intersecting them.
+
 * Functions that pull the 2D slices from the 3D TB and ARPES datacube. The selected slices are saved in the ".npy" format as inputs (ARPES) and ground truth (TB) for the super-resolution convolutional neural network (SR-CNN).
 
 * Directly save the generated ARPES and TB data to the dataset directory of the SR-CNN.
