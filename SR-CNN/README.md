@@ -46,7 +46,7 @@ Extracting fine features from different ARPES band structures. Dashed red boxes 
 * Numpy 1.14.0  
 * Matplotlib 3.1.1 
  
-The code can also run in Tensorflow 2 environment.
+The code can also run in Tensorflow 2 environment, as long as eager execution is suppressed.
 
 ## Reference
 [1] Image Super-Resolution Using Deep Convolutional Networks, Chao Dong et al., https://ieeexplore.ieee.org/abstract/document/7115171/  
