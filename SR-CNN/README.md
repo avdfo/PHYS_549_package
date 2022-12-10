@@ -35,7 +35,7 @@ Quantitative illustration of the momentum distribution curves in the ground trut
   <img src="./readme/MDC.png" width="750">   
 </div>
 
-Extracting fine features from different ARPES band structures. Dashed red boxes dentoe the regions of interest.
+Extracting fine features from different ARPES band structures. Dashed red boxes denote the regions of interest.
 <div align="center">
   <img src="./readme/Test_exp.png" width="500">   
 </div>
